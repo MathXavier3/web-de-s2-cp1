@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistema de Cadastro - Jogadoras de Futebol Feminino</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>
+          <i class="fas fa-futbol"></i> Sistema de Cadastro - Jogadoras de
+          Futebol Feminino
+        </h1>
+      </header>
+
+      <section class="form-section">
+        <h2 id="form-title">Cadastrar Nova Jogadora</h2>
+        <form id="player-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nome">Nome *</label>
+              <input type="text" id="nome" name="nome" required />
+            </div>
+            <div class="form-group">
+              <label for="posicao">Posição *</label>
+              <select id="posicao" name="posicao" required>
+                <option value="">Selecione uma posição</option>
+                <option value="Goleira">Goleira</option>
+                <option value="Zagueira">Zagueira</option>
+                <option value="Lateral">Lateral</option>
+                <option value="Meio-campo">Meio-campo</option>
+                <option value="Atacante">Atacante</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="clube">Clube *</label>
+              <input type="text" id="clube" name="clube" required />
+            </div>
+            <div class="form-group">
+              <label for="foto">URL da Foto *</label>
+              <input type="url" id="foto" name="foto" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="gols">Gols</label>
+              <input type="number" id="gols" name="gols" min="0" value="0" />
+            </div>
+            <div class="form-group">
+              <label for="assistencias">Assistências</label>
+              <input
+                type="number"
+                id="assistencias"
+                name="assistencias"
+                min="0"
+                value="0"
+              />
+            </div>
+            <div class="form-group">
+              <label for="jogos">Jogos</label>
+              <input type="number" id="jogos" name="jogos" min="0" value="0" />
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" id="submit-btn">Cadastrar Jogadora</button>
+            <button type="button" id="cancel-btn" style="display: none">
+              Cancelar Edição
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <section class="filters-section">
+        <div class="filters-row">
+          <div class="search-group">
+            <i class="fas fa-search"></i>
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Buscar por nome ou posição..."
+            />
+          </div>
+          <div class="filter-group">
+            <label for="clube-filter">Filtrar por clube:</label>
+            <select id="clube-filter">
+              <option value="">Todos os clubes</option>
+            </select>
+          </div>
+          <div class="sort-group">
+            <label for="sort-select">Ordenar por:</label>
+            <select id="sort-select">
+              <option value="nome">Nome</option>
+              <option value="posicao">Posição</option>
+              <option value="gols">Gols (maior)</option>
+              <option value="jogos">Jogos (maior)</option>
+            </select>
+          </div>
+          <div class="action-group">
+            <button id="reset-data-btn" class="btn-reset">
+              <i class="fas fa-refresh"></i> Resetar Dados
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="players-section">
+        <h2>Jogadoras Cadastradas</h2>
+        <div id="players-grid" class="players-grid"></div>
+        <div id="no-players" class="no-players" style="display: none">
+          <i class="fas fa-users"></i>
+          <p>Nenhuma jogadora encontrada</p>
+        </div>
+      </section>
+    </div>
+
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <h3 id="modal-title">Confirmar Ação</h3>
+        <p id="modal-message">Tem certeza que deseja realizar esta ação?</p>
+        <div class="modal-actions">
+          <button id="modal-confirm" class="btn-confirm">Confirmar</button>
+          <button id="modal-cancel" class="btn-cancel">Cancelar</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="alert" class="alert">
+      <span id="alert-message"></span>
+      <button id="alert-close">&times;</button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
