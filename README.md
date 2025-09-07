@@ -135,7 +135,7 @@ web-de-s2-cp1/
 ## 🌐 Deploy
 
 A aplicação está disponível no GitHub Pages:
-**[]**
+**[https://mathxavier3.github.io/web-de-s2-cp1/]**
 
 ## 📄 Licença
 
